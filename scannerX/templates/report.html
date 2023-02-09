@@ -1,0 +1,85 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block content %}
+<h1 class="text-4xl py-3">Report</h1>
+<div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+  <table class="w-full text-left">
+    <thead class="text-xs text-white uppercase bg-black">
+      <tr>
+        <th scope="col" class="px-6 py-3">S/N</th>
+        <th scope="col" class="px-6 py-3">Vulnerability</th>
+        <th scope="col" class="px-6 py-3">Status</th>
+        <th scope="col" class="px-6 py-3">Information</th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Details</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in report %}
+      <tr>
+        <td class="text-center px-6 py-3">{{ forloop.counter }}</td>
+        <td class="px-6 py-3">{{item.name}}</td>
+        <td class="px-6 py-3">{{item.status}}</td>
+        <td class="px-6 py-3">{{item.message}}</td>
+        <td class="text-center ">
+          <button value={{forloop.counter}} onclick="openModal(this.value)"
+            class="bg-blue-500 text-black py-2 px-4 rounded-lg">Click for more details</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<!--Modal Section-->
+{% for item in report %}
+<div id="myModal{{forloop.counter}}"
+  class="overscroll-contain fixed top-0 left-0 w-full h-full hidden items-center bg-modal opacity-75 justify-center py-5 px-4">
+  <div class="bg-white rounded-lg p-5 relative m-auto max-w-lg">
+    <div class="flex justify-between items-center">
+      <h2 class="text-lg font-medium">More Information</h2>
+      <button class="text-gray-500" value={{forloop.counter}} onclick="closeModal(this.value)">&times;</button>
+    </div>
+    <div class="mt-4">
+      <ul class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4" id="tabs-tab"
+        role="tablist">
+        {% if item.header != '' %}
+        <li class="nav-item" role="presentation">
+          <a href="#tabs-home"
+            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent active"
+            id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-home" role="tab" aria-controls="tabs-home"
+            aria-selected="true">Headers</a>
+        </li>
+        {% endif %}
+        {% if item.screenshot != '' %}
+        <li class="nav-item" role="presentation">
+          <a href="#tabs-profile"
+            class="nav-link block font-medium text-xs leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-transparent hover:bg-gray-100 focus:border-transparent active"
+            id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
+            aria-controls="tabs-profile" aria-selected="false">Screenshot</a>
+        </li>
+        {% endif %}
+      </ul>
+      <div class="tab-content" id="tabs-tabContent">
+        {% if item.header != '' %}
+        <div class="tab-pane fade show active" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab">
+          <pre><code>
+          {{item.header}}
+          </code></pre>
+        </div>
+        {% endif %}
+        {% if item.screenshot != '' %}
+        <div class="tab-pane fade" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
+          <!--<img src="{% static 'images/csrf/csrf_0.png' %}" alt="test_image"/>-->
+          <img style="max-width:60%;" class="mx-auto" src="{% static '' %}{{item.screenshot}}" alt="test_image" />
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<!--End Modal-->
+
+{% endblock content %}

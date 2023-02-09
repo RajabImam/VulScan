@@ -1,0 +1,41 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="text-center">
+    <div class="flex">
+        <div class="py-4 lg:py-8 px-4 mx-auto max-w-screen-md">
+            <h2 class="mb-8 text-4xl tracking-tight font-extrabold text-center text-gray-900"
+                style="margin-bottom: 10px; color: rgba(0, 153, 153, 1);" >Contact Us</h2>
+            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl"
+                style="margin-bottom: 25px;">Got a technical issue? Want to send feedback about a beta feature? Need
+                details about our Business plan? Let us know.</p>
+            <form action="#" class="space-y-8">
+                <div>
+                    <label for="email" class="block mb-1 text-sm font-medium text-gray-900 "
+                        style="padding: 5px; text-align: left;">Your email</label>
+                    <input type="email" id="email"
+                        class="shadow-sm bg-gray-50 border-2 border-black-500 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
+                        style="padding: 5px;" placeholder="name@flowbite.com" required>
+                </div>
+                <div>
+                    <label for="subject" class="block mb-1 text-sm font-medium text-gray-900 "
+                        style="padding: 5px; text-align: left;">Subject</label>
+                    <input type="text" id="subject"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border-2 border-black-500 shadow-sm focus:ring-primary-500 focus:border-primary-500 "
+                        style="padding: 5px;" placeholder="Let us know how we can help you" required>
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="message" class="block mb-1 text-sm font-medium text-gray-900"
+                        style="padding: 5px; text-align: left;">Your message</label>
+                    <textarea id="message" rows="6"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border-2 border-black-500 focus:ring-primary-500 focus:border-primary-500 "
+                        style="padding: 5px;" placeholder="Leave a comment..."></textarea>
+                </div>
+                <button type="submit"
+                    class="py-3 px-5 mt-5 font-medium items-center h-12 p-4 text-sm text-white transition duration-150 duration-300 ease-in-out rounded-r-full rounded-bl-full outline-none right-1 top-1 bg-black sm:py-2 sm:px-6 sm:rounded-full sm:text-base sm:font-medium hover:bg-cool-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cool-indigo-500"
+                    style="margin-top: 10px; background-color: rgba(0, 153, 153, 1);">Send message</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,75 @@
+<!-- templates/_base.html -->
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VulScan</title>
+
+    {% compress css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+    <style>
+        .bg-modal{
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav
+            class="w-full flex flex-wrap items-center justify-between py-3 bg-gray-900 text-gray-200 shadow-lg navbar navbar-expand-lg navbar-light" style="background-color: rgba(0, 153, 153, 1);">
+            <div class="container-fluid w-full flex items-center justify-between px-6">
+                <a class="text-xl text-white pr-2 font-semibold" href="/">VulScan</a>
+                <!-- Left links -->
+                <ul class="navbar-nav flex justify-center pl-0 list-style-none mr-auto">
+                    <li class="nav-item p-2">
+                        <a class="nav-link text-white" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                            href="/about">About</a>
+                    </li>
+                    <li class="nav-item p-2">
+                        <a class="nav-link text-white opacity-60 hover:opacity-80 focus:opacity-80 p-0"
+                            href="/contact">Contact</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <div class="container mx-auto mt-4">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <footer class="text-center bg-gray-900 text-white fixed bottom-0 w-full">
+        <div class="text-center p-4" style="background-color: rgba(0, 153, 153, 1);">
+            © 2023 Copyright:
+            <a class="text-whitehite" href="/about">ISEP PTDF Students</a>
+        </div>
+    </footer>
+    <script>
+        function openModal(value) {
+            modal = 'myModal' + value.toString()
+            document.getElementById(modal).classList.remove("hidden");
+            document.getElementById(modal).classList.add("flex");
+        }
+
+        function closeModal(value) {
+            modal = 'myModal' + value.toString()
+            document.getElementById(modal).classList.remove("flex");
+            document.getElementById(modal).classList.add("hidden");
+        }
+    </script>
+</body>
+
+</html>

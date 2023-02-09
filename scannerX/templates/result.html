@@ -1,0 +1,98 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="text-center lg:mt-20">
+    <div>
+        <h1
+            class="text-4xl py-2 font-extrabold tracking-tight text-gray-900 font-display sm:text-5xl md:text-6xl xl:text-7xl">
+            <span class="block xl:inline">Result</span>
+        </h1>
+    </div>
+    <div class="px-4 py-10 w-full">
+            <div class="relative w-full max-w-xl mx-auto bg-white rounded-full h-14 lg:max-w-none">
+
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    S/No
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    vulnerability
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    More Information
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    1
+                </th>
+                <td class="px-6 py-4">
+                    SQL Injection
+                </td>
+                <td class="px-6 py-4">
+                    {{SQLInjection}}
+                </td>
+                <td class="px-6 py-4">
+                    More details here
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    2
+                </th>
+                <td class="px-6 py-4">
+                    XXE
+                </td>
+                <td class="px-6 py-4">
+                    {{XXE}}
+                </td>
+                <td class="px-6 py-4">
+                    More details here
+                </td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    3
+                </th>
+                <td class="px-6 py-4">
+                    XSS
+                </td>
+                <td class="px-6 py-4">
+                    {{XSS}}
+                </td>
+                <td class="px-6 py-4">
+                    More details here
+                </td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    4
+                </th>
+                <td class="px-6 py-4">
+                    CSRF
+                </td>
+                <td class="px-6 py-4">
+                    {{CSRF}}
+                </td>
+                <td class="px-6 py-4">
+                    More details here
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+                
+            </div>
+    
+    </div>
+</div>
+{% endblock content %}
